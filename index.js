@@ -19,7 +19,6 @@ function sort(width, height, length, mass) {
       throw new Error("All dimensions and mass must be positive numbers.");
     }
 
-
     const bulky = width >= 150 || height >= 150 || length >= 150 || (width * height * length) >= 1_000_000;
     const heavy = mass >= 20;
 
