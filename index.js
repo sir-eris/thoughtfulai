@@ -7,6 +7,19 @@
 // bulky is when volume is >= 1_000_000
 // heavy is when mass >= 20
 function sort(width, height, length, mass) {
+    if (typeof width !== 'number' || typeof height !== 'number' || typeof length !== 'number' || typeof mass !== 'number') {
+        throw new Error("All dimensions and mass must be numbers.");
+    }
+
+    if (!Number.isFinite(width) || !Number.isFinite(height) || !Number.isFinite(length) || !Number.isFinite(mass)) {
+        throw new Error("All dimensions and mass must be finite numbers.");
+    }
+
+    if (width <= 0 || height <= 0 || length <= 0 || mass <= 0) {
+      throw new Error("All dimensions and mass must be positive numbers.");
+    }
+
+
     const bulky = width >= 150 || height >= 150 || length >= 150 || (width * height * length) >= 1_000_000;
     const heavy = mass >= 20;
 
